@@ -15,6 +15,9 @@ while game_running:
 
     screen.fill((0,0,0))
 
+    # test = pygameClasses.Object("Textures/Image.png", (0,0))
+    # test.Render(screen)
+
     pygame.display.update()
 
     clock.tick(60) 
