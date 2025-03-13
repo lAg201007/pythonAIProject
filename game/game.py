@@ -1,5 +1,6 @@
 import pygame
 import pygameClasses
+import time
 
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
@@ -8,7 +9,19 @@ clock = pygame.time.Clock()
 
 game_running = True
 
+dt = 0
+FPS = 60
+prev_time = time.time()
+
 while game_running:
+    clock.tick(FPS)
+
+    now = time.time()
+    dt = now - prev_time
+    prev_time = now
+
+    # exemplo usando dt: object_xpos = xvelocity * dt
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_running = False
@@ -19,5 +32,3 @@ while game_running:
     # test.Render(screen)
 
     pygame.display.update()
-
-    clock.tick(60) 
