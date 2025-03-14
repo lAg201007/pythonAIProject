@@ -1,6 +1,7 @@
 import pygame
 import pygameClasses
 import time
+import carClass
 
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
@@ -30,5 +31,8 @@ while game_running:
 
     # test = pygameClasses.Object("Textures/Image.png", (0,0))
     # test.Render(screen)
+
+    test = carClass.Car(10,10,"game/Sprites/red_car.png",screen.get_width() / 2, screen.get_height() / 2)
+    test.Object.Render(screen)
 
     pygame.display.update()

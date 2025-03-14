@@ -9,10 +9,10 @@ class Texture():
 class Object():
     def __init__(self, image, pos):
         self.Surface = pygame.image.load(image).convert_alpha()
-        self.Rect = self.Surface.get_rect(topleft=pos)
+        self.Rect = self.Surface.get_rect(center=pos)
         self.Position = pos
     def UpdateRectPos(self, pos):
-        self.Rect = self.Surface.get_rect(topleft=pos)
+        self.Rect = self.Surface.get_rect(center=pos)
         self.Position = pos
     def Render(self, screenR):
         self.UpdateRectPos(self.Position)
