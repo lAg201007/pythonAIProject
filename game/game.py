@@ -25,13 +25,16 @@ while game_running:
     prev_time = now
 
     for event in pygame.event.get():
-        keys = pygame.key.get_pressed()
-        car.input(keys,dt) 
         if event.type == pygame.QUIT:
             game_running = False
+        if event.type == pygame.KEYDOWN:
+            car.getInputs(event)
+        if event.type == pygame.KEYUP:
+            car.releaseInputs(event)
 
     screen.fill((0,0,0))
 
+    car.updateInputs(dt)
     car.desacelerate(dt)
     car.move(dt)
 
