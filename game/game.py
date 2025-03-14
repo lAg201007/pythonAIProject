@@ -14,6 +14,9 @@ dt = 0
 FPS = 60
 prev_time = time.time()
 
+car = carClass.Car(200,200,10,"game/Sprites/red_car.png",screen.get_width() / 2, screen.get_height() / 2)
+car.Object.Rotate(180)
+
 while game_running:
     clock.tick(FPS)
 
@@ -32,7 +35,9 @@ while game_running:
     # test = pygameClasses.Object("Textures/Image.png", (0,0))
     # test.Render(screen)
 
-    test = carClass.Car(10,10,"game/Sprites/red_car.png",screen.get_width() / 2, screen.get_height() / 2)
-    test.Object.Render(screen)
+    car.accelerateFoward(dt)
+    car.move(dt)
+
+    car.Object.Render(screen)
 
     pygame.display.update()
