@@ -2,6 +2,7 @@ import pygame
 import pygameClasses
 import time
 import carClass
+import player
 
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
@@ -14,8 +15,7 @@ dt = 0
 FPS = 60
 prev_time = time.time()
 
-car = carClass.Car(200,200,10,"game/Sprites/red_car.png",screen.get_width() / 2, screen.get_height() / 2)
-car.Object.Rotate(180)
+car = player.Player(400,200,10,400,200,"game/Sprites/red_car.png",screen.get_width() / 2, screen.get_height() / 2)
 
 while game_running:
     clock.tick(FPS)
@@ -24,18 +24,15 @@ while game_running:
     dt = now - prev_time
     prev_time = now
 
-    # exemplo usando dt: object_xpos = xvelocity * dt
-
     for event in pygame.event.get():
+        keys = pygame.key.get_pressed()
+        car.input(keys,dt) 
         if event.type == pygame.QUIT:
             game_running = False
 
     screen.fill((0,0,0))
 
-    # test = pygameClasses.Object("Textures/Image.png", (0,0))
-    # test.Render(screen)
-
-    car.accelerateFoward(dt)
+    car.desacelerate(dt)
     car.move(dt)
 
     car.Object.Render(screen)
