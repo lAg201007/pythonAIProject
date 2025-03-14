@@ -15,7 +15,7 @@ dt = 0
 FPS = 60
 prev_time = time.time()
 
-car = player.Player(400,200,10,400,200,"game/Sprites/red_car.png",screen.get_width() / 2, screen.get_height() / 2)
+car = player.Player(400,200,30,150,100,"game/Sprites/red_car.png",screen.get_width() / 2, screen.get_height() / 2)
 
 while game_running:
     clock.tick(FPS)
