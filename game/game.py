@@ -5,7 +5,7 @@ import carClass
 import player
 
 pygame.init()
-screen = pygame.display.set_mode((800, 600))
+screen = pygame.display.set_mode((1250, 700))
 pygame.display.set_caption("game")
 clock = pygame.time.Clock()
 
